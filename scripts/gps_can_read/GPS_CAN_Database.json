@@ -1,0 +1,190 @@
+{
+    "oxts_can_frames": [
+        {
+            "arbitration_id": 1541,
+            "data_length": 8,
+			"name": "AccelVehicle",
+			"signals" : [
+				{
+					"name" : "AccelX",
+					"data_type" : "I16",
+					"start_bit" : 0,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "g"
+				},
+				{
+					"name" : "AccelY",
+					"data_type" : "I16",
+					"start_bit" : 16,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "g"
+				},
+				{
+					"name" : "AccelZ",
+					"data_type" : "I16",
+					"start_bit" : 32,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "g"
+				}		
+			]
+		},
+		{
+            "arbitration_id": 1542,
+            "data_length": 8,
+			"name": "AccelLevel",
+			"signals" : [
+				{
+					"name" : "AccelForward",
+					"data_type" : "I16",
+					"start_bit" : 0,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "g"
+				},
+				{
+					"name" : "AccelLateral",
+					"data_type" : "I16",
+					"start_bit" : 16,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "g"
+				},
+				{
+					"name" : "AccelVertical",
+					"data_type" : "I16",
+					"start_bit" : 32,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "g"
+				}	
+			]
+		},
+		{
+            "arbitration_id": 1544,
+            "data_length": 8,
+			"name": "RateVehicle",
+			"signals" : [
+				{
+					"name" : "RollRate",
+					"data_type" : "I16",
+					"start_bit" : 0,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "deg/s"
+				},
+				{
+					"name" : "PitchRate",
+					"data_type" : "I16",
+					"start_bit" : 16,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "deg/s"
+				},
+				{
+					"name" : "YawRate",
+					"data_type" : "I16",
+					"start_bit" : 32,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "deg/s"
+				}	
+			]
+		},
+		{
+            "arbitration_id": 1280,
+            "data_length": 8,
+			"name": "GPSStatus",
+			"signals" : [
+				{
+					"name" : "GPSPosMode",
+					"data_type" : "U8",
+					"start_bit" : 40,
+					"no_of_bits" : 8,
+					"scale" : 1,
+					"units" : "NA"
+				}
+			]
+		},
+		{
+            "arbitration_id": 1543,
+            "data_length": 8,
+			"name": "HeadingPitchRoll",
+			"signals" : [
+				{
+					"name" : "AngleHeading",
+					"data_type" : "U16",
+					"start_bit" : 0,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "deg"
+				},
+				{
+					"name" : "AnglePitch",
+					"data_type" : "I16",
+					"start_bit" : 16,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "deg"
+				},
+				{
+					"name" : "AngleRoll",
+					"data_type" : "I16",
+					"start_bit" : 32,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "deg"
+				}
+			]
+		},
+		{
+            "arbitration_id": 1540,
+            "data_length": 8,
+			"name": "VelocityLevel",
+			"signals" : [
+				{
+					"name" : "VelForward",
+					"data_type" : "I16",
+					"start_bit" : 0,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "m/s"
+				},
+				{
+					"name" : "VelLateral",
+					"data_type" : "I16",
+					"start_bit" : 16,
+					"no_of_bits" : 16,
+					"scale" : 0.01,
+					"units" : "m/s"
+				}
+			]
+		},
+		{
+            "arbitration_id": 1537,
+            "data_length": 8,
+			"name": "LatitudeLongitude",
+			"signals" : [
+				{
+					"name" : "Latitude",
+					"data_type" : "I32",
+					"start_bit" : 0,
+					"no_of_bits" : 32,
+					"scale" : 0.0000001,
+					"units" : "deg"
+				},
+				{
+					"name" : "Longitude",
+					"data_type" : "I32",
+					"start_bit" : 32,
+					"no_of_bits" : 32,
+					"scale" : 0.0000001,
+					"units" : "deg"
+				}
+			]
+		}
+	]
+	
+}

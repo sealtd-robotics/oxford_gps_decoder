@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- GPS Reading Node -->
+	<node pkg="oxford_gps_decoder" type="gps_decoder.py" name="gps_decoder" output="screen" />
+</launch>

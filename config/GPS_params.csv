@@ -1,0 +1,23 @@
+After skipping the first character,,,,,,,,
+Var No,Name,Bytes From,Bytes End,Units,Scale,Unit Conversion,Final Scale,Final Units
+1,TimeMilliSec,1,2,ms,1,1,1,ms
+2,Ax,3,5,m/s^2,0.0001,1,0.0001,m/s^2
+3,Ay,6,8,m/s^2,0.0001,1,0.0001,m/s^2
+4,Az,9,11,m/s^2,0.0001,1,0.0001,m/s^2
+5,Roll Rate,12,14,rad/s,0.00001,57.29577951,0.00001,rad/s
+6,Pitch Rate,15,17,rad/s,0.00001,57.29577951,0.00001,rad/s
+7,Yaw Rate,18,20,rad/s,0.00001,57.29577951,0.00001,rad/s
+8,Latitude,23,30,rad,1,57.29577951,57.29577951,deg
+9,Longitude,31,38,rad,1,57.29577951,57.29577951,deg
+10,Altitude,39,42,m,1,1,1,m
+11,Velocity North,43,45,m/s,0.0001,1,0.0001,m/s
+12,Velocity East,46,48,m/s,0.0001,1,0.0001,m/s
+13,Velocity Down,49,51,m/s,0.0001,1,0.0001,m/s
+14,Heading,52,54,rad,0.000001,57.29577951,0.000001,rad
+15,Pitch,55,57,rad,0.000001,57.29577951,0.000001,rad
+16,Roll,58,60,rad,0.000001,57.29577951,0.000001,rad
+17,NavStat,21,21,int,1,1,1,none
+18,StatusChannel,62,62,int,1,1,1,none
+19,TimeMin,63,66,min,1,1,1,min
+20,NumOfSatellites,67,67,int,1,1,1,none
+21,PositionMode,68,68,int,1,1,1,none 
