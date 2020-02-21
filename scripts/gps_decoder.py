@@ -3,9 +3,10 @@
 # Email: anguyen@sealimited.com
 # Maintainer: An Nguyen
 
+from __future__ import division
+import rospy
 import socket
 import struct
-import rospy
 import os
 from math import pi
 from oxford_gps_decoder.simple_gps_msg_decode import decodeGPSRawMsg, GPS_specs
