@@ -1,6 +1,6 @@
 import struct
 """
-Help functions
+Help functions to decode bytes to decimals
 """
 def dec2hex(dec_value):
     return hex(dec_value)[2:] # example: hex(75) = 0x4b -> hex(75)[2:] = 4b
@@ -39,8 +39,18 @@ def unpack64bitDouble(bytes):
 def unpack32bitFloat(bytes):
     return struct.unpack('<f', bytes)[0]
 
-def unpack8bitUByte(byte):
-    return struct.unpack('<B', byte)[0]
+# Purpose: Unpack 8bit to Unsigned Integer & little endian
+def unpack8bitUnsignedInt(bytes):
+    return struct.unpack('<B', bytes)[0]
 
+# Purpose: Unpack 16bit to Integer & little endian
+def unpack16bitSignedInt(bytes):
+    return struct.unpack('<h', bytes)[0]
+
+# Purpose: Unpack 16bit to unsigned Integer & little endian
 def unpack16bitUnsignedInt(bytes):
     return struct.unpack('<H', bytes)[0]
+
+# Purpose: Unpack 32bit to Integer & little endian
+def unpack32bitSignedInt(bytes):
+    return struct.unpack('<i', bytes)[0]

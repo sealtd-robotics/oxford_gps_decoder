@@ -1,5 +1,76 @@
 {
-    "oxts_can_frames": [
+	"oxts_can_frames": [
+		{
+			"arbitration_id": 1536,
+			"data_length": 8,
+			"name": "GPSTime",
+			"signals": [
+				{
+					"name": "Year",
+					"data_type": "U8",
+					"start_bit": 0,
+					"no_of_bits": 8,
+					"scale": 1,
+					"units": "year"
+				},
+				{
+					"name": "Century",
+					"data_type": "U8",
+					"start_bit": 8,
+					"no_of_bits": 8,
+					"scale": 100,
+					"units": "century"
+				},
+				{
+					"name": "Month",
+					"data_type": "U8",
+					"start_bit": 16,
+					"no_of_bits": 8,
+					"scale": 1,
+					"units": "month"
+				},
+				{
+					"name": "Day",
+					"data_type": "U8",
+					"start_bit": 24,
+					"no_of_bits": 8,
+					"scale": 1,
+					"units": "day"
+				},
+				{
+					"name": "HSecond",
+					"data_type": "U8",
+					"start_bit": 32,
+					"no_of_bits": 8,
+					"scale": 0.01,
+					"units": "s"
+				},
+				{
+					"name": "Second",
+					"data_type": "U8",
+					"start_bit": 40,
+					"no_of_bits": 8,
+					"scale": 1,
+					"units": "s"
+				},
+				{
+					"name": "Minute",
+					"data_type": "U8",
+					"start_bit": 48,
+					"no_of_bits": 8,
+					"scale": 1,
+					"units": "min"
+				},
+				{
+					"name": "Hour",
+					"data_type": "U8",
+					"start_bit": 56,
+					"no_of_bits": 8,
+					"scale": 1,
+					"units": "hour"
+				}
+			]
+		},
         {
             "arbitration_id": 1541,
             "data_length": 8,
@@ -98,6 +169,14 @@
             "data_length": 8,
 			"name": "GPSStatus",
 			"signals" : [
+				{
+					"name" : "NumOfSatellites",
+					"data_type" : "U8",
+					"start_bit" : 32,
+					"no_of_bits" : 8,
+					"scale" : 1,
+					"units" : "NA"
+				},
 				{
 					"name" : "GPSPosMode",
 					"data_type" : "U8",
