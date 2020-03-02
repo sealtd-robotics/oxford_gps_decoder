@@ -9,8 +9,8 @@ readers = {
     "Longitude": dc.unpack64bitDouble,
     "Latitude": dc.unpack64bitDouble,
     "Altitude": dc.unpack32bitFloat,
-    "TimeMin": dc.unpack32bitFloat,
-    "NavSat": dc.unpack8bitUnsignedInt,
+    "TimeMin": dc.unpack32bitUnsignedInt,
+    "NavStat": dc.unpack8bitUnsignedInt,
     "StatusChannel": dc.unpack8bitUnsignedInt,
     "PositionMode": dc.unpack8bitUnsignedInt,
     "NumOfSatellites": dc.unpack8bitUnsignedInt,
@@ -24,7 +24,7 @@ decode = {
 	"U8": dc.unpack8bitUnsignedInt
 }
 # Process file with GPS parameters from RT manual
-class EthenetGPS(object):
+class EthernetGPS(object):
     def __init__(self):
         GPS_CONFIG_FILE = os.path.abspath(os.path.join(
                         SCRIPT_PATH, '..', '..', 'config', 'GPS_params.csv'))

@@ -54,3 +54,7 @@ def unpack16bitUnsignedInt(bytes):
 # Purpose: Unpack 32bit to Integer & little endian
 def unpack32bitSignedInt(bytes):
     return struct.unpack('<i', bytes)[0]
+
+# Purpose: Unpack 32bit to Integer & little endian
+def unpack32bitUnsignedInt(bytes):
+    return struct.unpack('<I', bytes)[0]

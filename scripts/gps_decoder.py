@@ -38,12 +38,13 @@ no_gps["NavStat"] = 0
 def velocity_level(v_east, v_north, heading_rad):
     """Output velocity forward and lateral"""
     v_forward = v_north*cos(heading_rad) + v_east*sin(heading_rad)
-    v_lateral = v_north*sin(heading_rad) + v_east*cos(heading_rad)
+    v_lateral = -v_north*sin(heading_rad) + v_east*cos(heading_rad)
     return v_forward, v_lateral
 
 
 class OxTSGPS(EthernetGPS):
     heading = 0
+    current_time_chan0 = None
     def __init__(self):
         """ Initate GPS_pub node """
         super(OxTSGPS, self).__init__()
@@ -51,7 +52,7 @@ class OxTSGPS(EthernetGPS):
         sock.bind((UDP_IP, UDP_PORT))
 
         # Load configuration for GPS ethernet
-        self.ARP_IP = rospy.get_param('arp_gps_ip', default='195.0.0.96')
+        self.ARP_IP = rospy.get_param('arp_gps_ip', default='195.0.0.17')
 
         # Subscriber
         rospy.Subscriber('/update_config', Bool, self.update_config)
@@ -76,7 +77,7 @@ class OxTSGPS(EthernetGPS):
         """ Publishing loop """
         self.process(buf)
         if (self.data["NavStat"] == 4):  # Check for valid status, page 11 on NCOM manual
-            pub["time"].publish(self.GPS_time(self.data))
+            # pub["time"].publish(self.GPS_time(self.data))
             pub["pos"].publish(self.GPS_global_position(self.data))
             pub["vel"].publish(self.GPS_velocity(self.data))
             pub["imu"].publish(self.GPS_imu(self.data))
@@ -89,6 +90,9 @@ class OxTSGPS(EthernetGPS):
             pub["status"].publish(self.GPS_status(self.data))
             if self.data["TimeMin"] >= 1000:
                 self.current_time_chan0 = GPS_EPOCH_OFFSET - GPS_LEAP_SECOND + self.data["TimeMin"]*60
+
+        if self.current_time_chan0:
+            pub["time"].publish(self.GPS_time(self.data))
 
     def update_config(self, msg):
         """Update configuration"""
@@ -114,9 +118,9 @@ class OxTSGPS(EthernetGPS):
     def GPS_velocity(self, data):
         """ Assign velocity message """
         msg_vel = VelocityGPS()
-        msg_vel.x = data['Velocity North']
-        msg_vel.y = data['Velocity East']
-        msg_vel.z = data['Velocity Down']
+        # msg_vel.x = data['Velocity North']
+        # msg_vel.y = data['Velocity East']
+        # msg_vel.z = data['Velocity Down']
         msg_vel.forward, msg_vel.lateral = velocity_level(msg_vel.y, msg_vel.x, self.heading)
         return msg_vel
 
