@@ -25,7 +25,7 @@ try:
 	print ("setup canbus")
 except IOError:
 	canbus_available = False
-	print ("Can 1 is not availabe")
+	print ("{} is not availabe".format(channel))
 
 
 def user():
@@ -33,7 +33,7 @@ def user():
 
 
 no_gps = {}
-no_gps["PositionMode"] = 0
+no_gps["GPSPosMode"] = 0
 no_gps["NavStat"] = 0
 no_gps["ImuStatus"] = False
 no_gps["NumOfSatellites"] = 0
@@ -59,7 +59,7 @@ class OxTSGPS(CanGPS):
 				can_msg = bus.recv(0.1)
 				if can_msg == None:
 					pub["status"].publish(self.GPS_status(no_gps))
-					print ("Can1 timeout")
+					# print ("Can1 timeout")
 				else:
 					self.process(can_msg.arbitration_id, can_msg.data)
 					if can_msg.arbitration_id == 1536:
@@ -131,17 +131,14 @@ class OxTSGPS(CanGPS):
 		"""Check GPS status"""
 		status = StatusGPS()
 		status.no_of_satellites = data["NumOfSatellites"]
-		status.imu_status = data["ImuStatus"]
+		status.imu_ready = data["ImuStatus"]
 
 		if 3 <= data["GPSPosMode"] <= 7:
-			status.gps_status = True
+			status.gps_ready = True
 		else:
-			status.gps_status = False
+			status.gps_ready = False
 
-		if data["GPSPosMode"] == 6 or data["GPSPosMode"] == 5:
-			status.dgps_status = True
-		else:
-			status.dgps_status = False
+		status.gps_status = data["GPSPosMode"]
 		return status
 
 if __name__ == "__main__":
